@@ -1,10 +1,19 @@
 class Game {
-  constructor(human, computer, gameType) {
+  constructor(human, computer) {
     this.player1 = human;
     this.player2 = computer;
-    this.gameType = gametype;
+    this.gameType = "classic";
     this.won = false;
     this.draw = false;
+  }
+  determineCurrentGameType() {
+    if (event.target.id === "classicGame") {
+      this.gameType = "classic";
+      displayClassicGame();
+    } else if (event.target.id === "difficultGame") {
+      this.gameType = "difficult";
+      displayDifficultGame();
+    }
   }
   checkWinConditions() {
 
@@ -13,6 +22,6 @@ class Game {
 
   }
   resetGame() {
-    
+
   }
 }
