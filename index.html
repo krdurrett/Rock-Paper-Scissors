@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+</head>
+<body>
+  <main>
+    <section class="left-section">
+      <div class="image-view">
+        <p class="human-emoji-image">👩‍🎤</p>
+        <p class="human-text">HUMAN</p>
+      </div>
+      <div class="wins-view">
+        <p class="wins">WINS: 0</p>
+      </div>
+      <button class="change-game-button">CHANGE GAME?</button>
+    </section>
+    <section class="game-board-section">
+      <section class="title-board">
+        <div class="title">
+          <p class="title-text">ROCK PAPER SCISSORS</p>
+        </div>
+        <div class="changing-text-box">
+          <p class="changing-text">Choose your game!</p>
+        </div>
+      </section>
+      <section class="game-board">
+        <div class="choose-game-buttons">
+          <button class="classic-game">
+            <p class="classic-game-title">🪨CLASSIC✂️</p>
+            <p class="classic-rules-list">rock > scissors<br>paper > rock<br>scissors > paper</p>
+          </button>
+          <button class="difficult-game">
+            <p class="difficult-game-title">🐊DIFFICULT🖖</p>
+            <p class="difficult-rules-list">rock > scissors & lizard<br>paper > rock & spock<br>scissors > paper & lizard<br>lizard > spock & paper<br>spock > scissors & rock</p>
+          </button>
+        </div>
+        <div class="choose-fighter-classic-view hidden">
+          <button class="fighter-button">
+            <img src="assets/rock.png" alt="rock" class="image" id="rockButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/happy-paper.png" alt="paper" class="image" id="paperButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">
+          </button>
+        </div>
+        <div class="choose-fighter-difficult-view hidden">
+          <button class="fighter-button">
+            <img src="assets/rock.png" alt="rock" class="image" id="rockButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/happy-paper.png" alt="paper" class="image" id="paperButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">
+          </button>
+        </div>
+        <div class="results-view hidden">
+          <img src="assets/happy-paper.png" alt="paper" class="image">
+          <img src="assets/happy-scissors.png" alt="scissors" class="image">
+        </div>
+      </section>
+    </section>
+    <section class="right-section">
+      <div class="image-view">
+        <p class="computer-emoji-image">💻</p>
+        <p class="computer-text">COMPUTER</p>
+      </div>
+      <div class="wins-view">
+        <p class="wins">WINS: 0</p>
+      </div>
+    </section>
+  </main>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="game.js"></script>
+  <script type="text/javascript" src="player.js"></script>
+</body>
+</html>
