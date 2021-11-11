@@ -137,16 +137,19 @@ main {
   font-size: 15px;
 }
 
-.choose-fighter-classic-view {
+.choose-fighter-classic-view,
+.choose-fighter-difficult-view {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 50px;
+  width: 80%;
 }
 
 .fighter-button {
-  height: 25%;
-  width: 25%;
+  height: 215px;
+  width: 215px;
   background-color: transparent;
   border: 0;
 }
@@ -154,6 +157,19 @@ main {
 .image {
   height: 90%;
   width: 90%;
+}
+
+.results-view {
+  display: flex;
+  justify-content: center;
+  height: 215px;
+  width: 215px;
+  margin-bottom: 180px;
+}
+
+.result-image {
+  height: 100%;
+  width: 100%;
 }
 
 .hidden {
