@@ -11,11 +11,11 @@
 <body>
   <main>
     <section class="left-section">
-      <div class="human-image">
+      <div class="image-view">
         <p class="human-emoji-image">👩‍🎤</p>
         <p class="human-text">HUMAN</p>
       </div>
-      <div class="human-wins">
+      <div class="wins-view">
         <p class="wins">WINS: 0</p>
       </div>
       <button class="change-game-button">CHANGE GAME?</button>
@@ -40,12 +40,48 @@
             <p class="difficult-rules-list">rock > scissors & lizard<br>paper > rock & spock<br>scissors > paper & lizard<br>lizard > spock & paper<br>spock > scissors & rock</p>
           </button>
         </div>
-        <div class="choose-fighter-view hidden">
+        <div class="choose-fighter-classic-view hidden">
           <button class="fighter-button">
-            <img src="" alt="rock" class="image" id="rockButton">
+            <img src="assets/rock.png" alt="rock" class="image" id="rockButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/happy-paper.png" alt="paper" class="image" id="paperButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">
           </button>
         </div>
+        <div class="choose-fighter-difficult-view hidden">
+          <button class="fighter-button">
+            <img src="assets/rock.png" alt="rock" class="image" id="rockButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/happy-paper.png" alt="paper" class="image" id="paperButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">
+          </button>
+          <button class="fighter-button">
+            <img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">
+          </button>
+        </div>
+        <div class="results-view hidden">
+          <img src="assets/happy-paper.png" alt="paper" class="image">
+          <img src="assets/happy-scissors.png" alt="scissors" class="image">
+        </div>
       </section>
+    </section>
+    <section class="right-section">
+      <div class="image-view">
+        <p class="computer-emoji-image">💻</p>
+        <p class="computer-text">COMPUTER</p>
+      </div>
+      <div class="wins-view">
+        <p class="wins">WINS: 0</p>
+      </div>
     </section>
   </main>
   <script type="text/javascript" src="main.js"></script>
