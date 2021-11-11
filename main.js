@@ -60,5 +60,6 @@ function returnToGameChoice() {
   removeHidden(gameChoiceView);
   addHidden(chooseFighterClassic);
   addHidden(chooseFighterDifficult);
+  addHidden(changeGameButtonView);
   changingTextView.innerText = "Choose your game!";
 }

@@ -66,6 +66,14 @@ main {
   margin-bottom: 300px;
 }
 
+.change-game-button:hover {
+  background-color: white;
+  color:  #480b7a;
+  border: 0;
+  padding: 15px;
+  margin-bottom: 300px;
+}
+
 .game-board-section {
   flex-grow: 2;
   height: 100vh;
@@ -117,6 +125,14 @@ main {
 .difficult-game {
   color: white;
   background-color: #480b7a;
+  border: 0;
+  padding: 10px 20px 20px 20px;
+}
+
+.classic-game:hover,
+.difficult-game:hover {
+  color: #480b7a;
+  background-color: white;
   border: 0;
   padding: 10px 20px 20px 20px;
 }
