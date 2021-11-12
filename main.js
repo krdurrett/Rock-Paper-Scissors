@@ -55,8 +55,16 @@ function removeHidden(element) {
 };
 
 function initiateGamePlay() {
-  var currentGame = new Game();
-  currentGame.determineCurrentGameType();
+  humanPlayer = new Player("human", "👩‍🎤", 0);
+  computerPlayer = new Player("computer", "💻,", 0);
+  currentGame = new Game(humanPlayer, computerPlayer);
+  if (event.target.id === "classicGame") {
+    currentGame.gameType = "classic";
+    displayClassicGame();
+  } else if (event.target.id === "difficultGame") {
+    currentGame.gameType = "difficult";
+    displayDifficultGame();
+  }
 }
 
 function displayClassicGame() {
@@ -83,8 +91,6 @@ function returnToGameChoice() {
 }
 
 function chooseFighter() {
-  var humanPlayer = new Player("human", "👩‍🎤", 0);
-  var computerPlayer = new Player("computer", "💻,", 0);
   humanPlayer.takeTurn();
   computerPlayer.takeTurn();
 }

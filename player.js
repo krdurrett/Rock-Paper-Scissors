@@ -12,7 +12,6 @@ class Player {
 
   }
   takeTurn() {
-    var currentGame = new Game();
     if (this.name === "human") {
       this.choice = event.target.id;
       displayHumanChoice(this.choice);
