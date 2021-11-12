@@ -12,6 +12,8 @@ class Player {
 
   }
   takeTurn() {
+    var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];
+    var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
     if (this.name === "human") {
       this.choice = event.target.id;
     }

@@ -27,8 +27,8 @@ var computerChoiceImage = document.querySelector(".computer-choice-image");
 var currentGame;
 // var humanPlayer;
 // var computerPlayer;
-var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];
-var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
+// var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];
+// var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
 
 
 //EVENT LISTENERS
