@@ -25,8 +25,8 @@ var computerChoiceImage = document.querySelector(".computer-choice-image");
 
 //GLOBAL VARIABLES
 var currentGame;
-var humanPlayer;
-var computerPlayer;
+// var humanPlayer;
+// var computerPlayer;
 var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];
 var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
 
@@ -35,7 +35,7 @@ var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "li
 gameChoiceView.addEventListener("click", initiateGamePlay);
 changeGameButton.addEventListener("click", returnToGameChoice);
 for (var i = 0; i < fighterButton.length; i++) {
-  fighterButton[i].addEventListener("click", chooseFighter);
+  fighterButton[i].addEventListener("click", playGame);
 };
 
 
@@ -55,12 +55,21 @@ function removeHidden(element) {
 };
 
 function initiateGamePlay() {
-  var currentGame = new Game();
-  currentGame.determineCurrentGameType();
+  humanPlayer = new Player("human", "👩‍🎤");
+  computerPlayer = new Player("computer", "💻,");
+  currentGame = new Game(humanPlayer, computerPlayer);
+  if (event.target.id === "classicGame") {
+    currentGame.gameType = "classic";
+    displayClassicGame();
+  } else if (event.target.id === "difficultGame") {
+    currentGame.gameType = "difficult";
+    displayDifficultGame();
+  }
 }
 
 function displayClassicGame() {
   addHidden(gameChoiceView);
+  addHidden(resultsView);
   removeHidden(chooseFighterClassic);
   removeHidden(changeGameButtonView);
   changingTextView.innerText = "Choose your fighter!";
@@ -68,6 +77,7 @@ function displayClassicGame() {
 
 function displayDifficultGame() {
   addHidden(gameChoiceView);
+  addHidden(resultsView);
   removeHidden(chooseFighterDifficult);
   removeHidden(changeGameButtonView);
   changingTextView.innerText = "Choose your fighter!";
@@ -82,11 +92,21 @@ function returnToGameChoice() {
   changingTextView.innerText = "Choose your game!";
 }
 
-function chooseFighter() {
-  var humanPlayer = new Player("human", "👩‍🎤", 0);
-  var computerPlayer = new Player("computer", "💻,", 0);
+function playGame() {
   humanPlayer.takeTurn();
   computerPlayer.takeTurn();
+  currentGame.checkWinConditions(humanPlayer, computerPlayer);
+  currentGame.checkForDraw(humanPlayer, computerPlayer);
+  currentGame.showGameResults(humanPlayer, computerPlayer);
+  setTimeout(resetGame, 2000);
+}
+
+function resetGame() {
+  if (currentGame.gameType === "classic") {
+    displayClassicGame();
+  } else if (currentGame.gameType === "difficult") {
+    displayDifficultGame();
+  }
 }
 
 function displayHumanChoice(humanChoice) {
@@ -121,9 +141,18 @@ function displayComputerChoice(computerChoice) {
   }
 }
 
+function displayWinner(winner) {
+  if (winner === "human") {
+    changingTextView.innerText = "👩‍🎤Human won this round!👩‍🎤";
+  } else if (winner === "computer") {
+    changingTextView.innerText = "💻Computer won this round!💻";
+  } else if (winner === "") {
+    changingTextView.innerText = "😭It's a draw!😭";
+  }
+}
+
 function displayResultsView() {
   removeHidden(resultsView);
   addHidden(chooseFighterClassic);
   addHidden(chooseFighterDifficult);
-  changingTextView.innerText = "💻Computer won this round!💻";
 }
