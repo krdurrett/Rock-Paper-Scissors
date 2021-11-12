@@ -47,7 +47,8 @@ main {
   margin-top: 5px;
 }
 
-.wins {
+.human-wins,
+.computer-wins {
   font-weight: 50;
 }
 

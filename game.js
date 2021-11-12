@@ -51,5 +51,6 @@ class Game {
     displayHumanChoice(player1.choice);
     displayComputerChoice(player2.choice);
     displayWinner(this.winner);
+    displayWins(player1.wins, player2.wins);
   }
 }

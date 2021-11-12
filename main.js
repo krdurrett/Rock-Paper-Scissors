@@ -17,6 +17,8 @@ var fighterButton = document.querySelectorAll(".fighter-button");
 var resultsView = document.querySelector(".results-view");
 var humanChoiceImage = document.querySelector(".human-choice-image");
 var computerChoiceImage = document.querySelector(".computer-choice-image");
+var humanWinDisplay = document.querySelector(".human-wins");
+var computerWinDisplay = document.querySelector(".computer-wins");
 // var rockButton = document.querySelector("#rockButton");
 // var paperButton = document.querySelector("#paperButton");
 // var scissorsButton = document.querySelector("#scissorsButton");
@@ -27,8 +29,8 @@ var computerChoiceImage = document.querySelector(".computer-choice-image");
 var currentGame;
 // var humanPlayer;
 // var computerPlayer;
-var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];
-var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
+// var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];
+// var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
 
 
 //EVENT LISTENERS
@@ -149,6 +151,11 @@ function displayWinner(winner) {
   } else if (winner === "") {
     changingTextView.innerText = "😭It's a draw!😭";
   }
+}
+
+function displayWins(player1, player2) {
+  humanWinDisplay.innerText = `WINS: ${player1}`;
+  computerWinDisplay.innerText = `WINS: ${player2}`;
 }
 
 function displayResultsView() {
