@@ -87,19 +87,43 @@ function chooseFighter() {
   var computerPlayer = new Player("computer", "💻,", 0);
   humanPlayer.takeTurn();
   computerPlayer.takeTurn();
-  displayPlayerChoice(humanPlayer.choice, computerPlayer.choice);
 }
 
-function displayPlayerChoice(humanChoice, computerChoice) {
+function displayHumanChoice(humanChoice) {
   humanChoiceImage.innerHTML = ``;
+  displayResultsView();
+  if (humanChoice === "paperButton") {
+    humanChoiceImage.innerHTML = `<img src="assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
+  } else if (humanChoice === "rockButton") {
+    humanChoiceImage.innerHTML = `<img src="assets/rock.png" alt="rock" class="image" id="rockButton">`;
+  } else if (humanChoice === "scissorsButton") {
+    humanChoiceImage.innerHTML = `<img src="assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
+  } else if (humanChoice === "lizardButton") {
+    humanChoiceImage.innerHTML = `<img src="assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
+  } else if (humanChoice === "spockButton") {
+    humanChoiceImage.innerHTML = `<img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">`
+  }
+}
+
+function displayComputerChoice(computerChoice) {
   computerChoiceImage.innerHTML = ``;
+  displayResultsView();
+  if (computerChoice === "paperButton") {
+    computerChoiceImage.innerHTML = `<img src="assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
+  } else if (computerChoice === "rockButton") {
+    computerChoiceImage.innerHTML = `<img src="assets/rock.png" alt="rock" class="image" id="rockButton">`;
+  } else if (computerChoice === "scissorsButton") {
+    computerChoiceImage.innerHTML = `<img src="assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
+  } else if (computerChoice === "lizardButton") {
+    computerChoiceImage.innerHTML = `<img src="assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
+  } else if (computerChoice === "spockButton") {
+    computerChoiceImage.innerHTML = `<img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">`
+  }
+}
+
+function displayResultsView() {
   removeHidden(resultsView);
   addHidden(chooseFighterClassic);
   addHidden(chooseFighterDifficult);
   changingTextView.innerText = "💻Computer won this round!💻";
-  humanChoiceImage.innerHTML = `humanChoice`;
-  computerChoiceImage.innerHTML = `computerChoice`;
-
-  console.log(humanChoice);
-  console.log(computerChoice);
 }

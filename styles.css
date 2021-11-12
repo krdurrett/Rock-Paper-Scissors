@@ -179,11 +179,11 @@ main {
   display: flex;
   justify-content: center;
   height: 215px;
-  width: 215px;
   margin-bottom: 180px;
 }
 
-.result-image {
+#humanChoiceImage,
+#computerChoiceImage {
   height: 100%;
   width: 100%;
 }
