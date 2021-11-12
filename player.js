@@ -11,7 +11,7 @@ class Player {
   retrieveWinsFromStorage() {
 
   }
-  chooseFighter() {
+  takeTurn() {
     if (this.name === "human") {
       this.choice = event.target.id;
     }

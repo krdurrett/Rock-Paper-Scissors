@@ -25,8 +25,8 @@ var computerChoiceImage = document.querySelector(".computer-choice-image");
 
 //GLOBAL VARIABLES
 var currentGame;
-var humanPlayer;
-var computerPlayer;
+// var humanPlayer;
+// var computerPlayer;
 var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];
 var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
 
@@ -93,10 +93,12 @@ function returnToGameChoice() {
 }
 
 function playGame() {
-  humanPlayer.chooseFighter();
-  computerPlayer.chooseFighter();
+  humanPlayer.takeTurn();
+  computerPlayer.takeTurn();
+  currentGame.checkWinConditions(humanPlayer, computerPlayer);
+  currentGame.checkForDraw(humanPlayer, computerPlayer);
   currentGame.showGameResults(humanPlayer, computerPlayer);
-  setTimeout(resetGame, 3000);
+  setTimeout(resetGame, 2000);
 }
 
 function resetGame() {
@@ -139,9 +141,18 @@ function displayComputerChoice(computerChoice) {
   }
 }
 
+function displayWinner(winner) {
+  if (winner === "human") {
+    changingTextView.innerText = "👩‍🎤Human won this round!👩‍🎤";
+  } else if (winner === "computer") {
+    changingTextView.innerText = "💻Computer won this round!💻";
+  } else if (winner === "") {
+    changingTextView.innerText = "😭It's a draw!😭";
+  }
+}
+
 function displayResultsView() {
   removeHidden(resultsView);
   addHidden(chooseFighterClassic);
   addHidden(chooseFighterDifficult);
-  changingTextView.innerText = "💻Computer won this round!💻";
 }

@@ -6,7 +6,7 @@ class Game {
     this.winner = "";
     this.draw = false;
   }
-  checkWinConditions() {
+  checkWinConditions(player1, player2) {
     if (player1.choice === "rockButton" && (player2.choice === "paperButton" || player2.choice === "spockButton")) {
       this.winner = "computer";
       player2.wins += 1;
@@ -39,21 +39,17 @@ class Game {
       player1.wins += 1;
     }
   }
-  checkForDraw() {
+  checkForDraw(player1, player2) {
     if (player1.choice === player2.choice) {
+      this.winner = "";
       this.draw = true;
+    } else {
+      this.draw = false;
     }
   }
   showGameResults(player1, player2) {
     displayHumanChoice(player1.choice);
     displayComputerChoice(player2.choice);
+    displayWinner(this.winner);
   }
-  // resetGame() {
-  //   console.log(this.gameType);
-  //   if (this.gameType === "classic") {
-  //     displayClassicGame();
-  //   } else if (this.gameType === "difficult") {
-  //     displayDifficultGame();
-  //   }
-  // }
 }
