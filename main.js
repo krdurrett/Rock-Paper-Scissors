@@ -35,7 +35,7 @@ var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "li
 gameChoiceView.addEventListener("click", initiateGamePlay);
 changeGameButton.addEventListener("click", returnToGameChoice);
 for (var i = 0; i < fighterButton.length; i++) {
-  fighterButton[i].addEventListener("click", chooseFighter);
+  fighterButton[i].addEventListener("click", playGame);
 };
 
 
@@ -69,6 +69,7 @@ function initiateGamePlay() {
 
 function displayClassicGame() {
   addHidden(gameChoiceView);
+  addHidden(resultsView);
   removeHidden(chooseFighterClassic);
   removeHidden(changeGameButtonView);
   changingTextView.innerText = "Choose your fighter!";
@@ -76,6 +77,7 @@ function displayClassicGame() {
 
 function displayDifficultGame() {
   addHidden(gameChoiceView);
+  addHidden(resultsView);
   removeHidden(chooseFighterDifficult);
   removeHidden(changeGameButtonView);
   changingTextView.innerText = "Choose your fighter!";
@@ -90,9 +92,19 @@ function returnToGameChoice() {
   changingTextView.innerText = "Choose your game!";
 }
 
-function chooseFighter() {
-  humanPlayer.takeTurn();
-  computerPlayer.takeTurn();
+function playGame() {
+  humanPlayer.chooseFighter();
+  computerPlayer.chooseFighter();
+  currentGame.showGameResults(humanPlayer, computerPlayer);
+  setTimeout(resetGame, 3000);
+}
+
+function resetGame() {
+  if (currentGame.gameType === "classic") {
+    displayClassicGame();
+  } else if (currentGame.gameType === "difficult") {
+    displayDifficultGame();
+  }
 }
 
 function displayHumanChoice(humanChoice) {
