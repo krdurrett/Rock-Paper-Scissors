@@ -55,8 +55,8 @@ function removeHidden(element) {
 };
 
 function initiateGamePlay() {
-  humanPlayer = new Player("human", "👩‍🎤", 0);
-  computerPlayer = new Player("computer", "💻,", 0);
+  humanPlayer = new Player("human", "👩‍🎤");
+  computerPlayer = new Player("computer", "💻,");
   currentGame = new Game(humanPlayer, computerPlayer);
   if (event.target.id === "classicGame") {
     currentGame.gameType = "classic";
