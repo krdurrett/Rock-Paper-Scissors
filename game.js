@@ -3,7 +3,7 @@ class Game {
     this.player1 = human;
     this.player2 = computer;
     this.gameType = "classic";
-    this.won = false;
+    this.won = "";
     this.draw = false;
   }
   determineCurrentGameType() {
