@@ -14,6 +14,9 @@ var changeGameButtonView = document.querySelector(".change-button-view");
 var changeGameButton = document.querySelector(".change-game-button");
 var changingTextView = document.querySelector(".changing-text");
 var fighterButton = document.querySelectorAll(".fighter-button");
+var resultsView = document.querySelector(".results-view");
+var humanChoiceImage = document.querySelector(".human-choice-image");
+var computerChoiceImage = document.querySelector(".computer-choice-image");
 // var rockButton = document.querySelector("#rockButton");
 // var paperButton = document.querySelector("#paperButton");
 // var scissorsButton = document.querySelector("#scissorsButton");
@@ -75,6 +78,7 @@ function returnToGameChoice() {
   addHidden(chooseFighterClassic);
   addHidden(chooseFighterDifficult);
   addHidden(changeGameButtonView);
+  addHidden(resultsView);
   changingTextView.innerText = "Choose your game!";
 }
 
@@ -83,4 +87,19 @@ function chooseFighter() {
   var computerPlayer = new Player("computer", "💻,", 0);
   humanPlayer.takeTurn();
   computerPlayer.takeTurn();
+  displayPlayerChoice(humanPlayer.choice, computerPlayer.choice);
+}
+
+function displayPlayerChoice(humanChoice, computerChoice) {
+  humanChoiceImage.innerHTML = ``;
+  computerChoiceImage.innerHTML = ``;
+  removeHidden(resultsView);
+  addHidden(chooseFighterClassic);
+  addHidden(chooseFighterDifficult);
+  changingTextView.innerText = "💻Computer won this round!💻";
+  humanChoiceImage.innerHTML = `humanChoice`;
+  computerChoiceImage.innerHTML = `computerChoice`;
+
+  console.log(humanChoice);
+  console.log(computerChoice);
 }
