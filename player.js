@@ -6,9 +6,23 @@ class Player {
     this.choice = "";
   }
   saveWinsToStorage() {
-
+    if (this.name === "human") {
+      var stringifiedHumanWins = JSON.stringify(this.wins);
+      localStorage.setItem('humanWins', stringifiedHumanWins);
+    } else if (this.name === "computer") {
+      var stringifiedComputerWins = JSON.stringify(this.wins);
+      localStorage.setItem('computerWins', stringifiedComputerWins);
+    }
   }
   retrieveWinsFromStorage() {
+    if (this.name === "human") {
+      var parsedHumanWins = JSON.parse(localStorage.getItem('humanWins'));
+      return parsedHumanWins;
+    } else if (this.name === "computer") {
+      var parsedComputerWins = JSON.parse(localStorage.getItem('computerWins'));
+      return parsedComputerWins;
+    }
+    // this.wins += parsedWins;
 
   }
   takeTurn() {

@@ -5,20 +5,20 @@
 //👩‍🎤Human won this round!👩‍🎤
 
 //QUERY SELECTORS
-var gameChoiceView = document.querySelector(".choose-game-buttons");
-var classicGameButton = document.querySelector(".classic-game");
-var difficultGameButton = document.querySelector(".difficult-game");
-var chooseFighterClassic = document.querySelector(".choose-fighter-classic-view");
-var chooseFighterDifficult = document.querySelector(".choose-fighter-difficult-view");
-var changeGameButtonView = document.querySelector(".change-button-view");
-var changeGameButton = document.querySelector(".change-game-button");
-var changingTextView = document.querySelector(".changing-text");
+var gameChoiceView = document.querySelector("#chooseGameButtons");
+var classicGameButton = document.querySelector("#classicGame");
+var difficultGameButton = document.querySelector("#difficultGame");
+var chooseFighterClassic = document.querySelector("#chooseFighterClassicView");
+var chooseFighterDifficult = document.querySelector("#chooseFighterDifficultView");
+var changeGameButtonView = document.querySelector("#changeButtonView");
+var changeGameButton = document.querySelector("#changeGameButton");
+var changingTextView = document.querySelector("#changingText");
 var fighterButton = document.querySelectorAll(".fighter-button");
-var resultsView = document.querySelector(".results-view");
-var humanChoiceImage = document.querySelector(".human-choice-image");
-var computerChoiceImage = document.querySelector(".computer-choice-image");
-var humanWinDisplay = document.querySelector(".human-wins");
-var computerWinDisplay = document.querySelector(".computer-wins");
+var resultsView = document.querySelector("#resultsView");
+var humanChoiceImage = document.querySelector("#humanChoiceImage");
+var computerChoiceImage = document.querySelector("#computerChoiceImage");
+var humanWinDisplay = document.querySelector("#humanWins");
+var computerWinDisplay = document.querySelector("#computerWins");
 // var rockButton = document.querySelector("#rockButton");
 // var paperButton = document.querySelector("#paperButton");
 // var scissorsButton = document.querySelector("#scissorsButton");
@@ -48,51 +48,48 @@ function getRandomIndex(array) {
   return array[randomIndex];
 };
 
-function addHidden(element) {
-  element.classList.add("hidden");
+function addHidden(elements) {
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].classList.add("hidden");
+  };
 };
 
-function removeHidden(element) {
-  element.classList.remove("hidden");
+function removeHidden(elements) {
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].classList.remove("hidden");
+  };
 };
 
 function initiateGamePlay() {
   humanPlayer = new Player("human", "👩‍🎤");
   computerPlayer = new Player("computer", "💻,");
   currentGame = new Game(humanPlayer, computerPlayer);
-  if (event.target.id === "classicGame") {
+  if (event.target.id === "classicGame" || event.target.id === "classicGameTitle" || event.target.id === "classicGameRules") {
     currentGame.gameType = "classic";
     displayClassicGame();
-  } else if (event.target.id === "difficultGame") {
+  } else if (event.target.id === "difficultGame" || event.target.id === "difficultGameTitle" || event.target.id === "difficultGameRules") {
     currentGame.gameType = "difficult";
     displayDifficultGame();
-  }
-}
+  };
+};
 
 function displayClassicGame() {
-  addHidden(gameChoiceView);
-  addHidden(resultsView);
-  removeHidden(chooseFighterClassic);
-  removeHidden(changeGameButtonView);
+  addHidden([gameChoiceView, resultsView]);
+  removeHidden([chooseFighterClassic, changeGameButtonView]);
   changingTextView.innerText = "Choose your fighter!";
 };
 
 function displayDifficultGame() {
-  addHidden(gameChoiceView);
-  addHidden(resultsView);
-  removeHidden(chooseFighterDifficult);
-  removeHidden(changeGameButtonView);
+  addHidden([gameChoiceView, resultsView]);
+  removeHidden([chooseFighterDifficult, changeGameButtonView]);
   changingTextView.innerText = "Choose your fighter!";
-}
+};
 
 function returnToGameChoice() {
-  removeHidden(gameChoiceView);
-  addHidden(chooseFighterClassic);
-  addHidden(chooseFighterDifficult);
-  addHidden(changeGameButtonView);
-  addHidden(resultsView);
+  removeHidden([gameChoiceView]);
+  addHidden([chooseFighterClassic, chooseFighterDifficult, changeGameButtonView, resultsView]);
   changingTextView.innerText = "Choose your game!";
-}
+};
 
 function playGame() {
   humanPlayer.takeTurn();
@@ -101,15 +98,15 @@ function playGame() {
   currentGame.checkForDraw(humanPlayer, computerPlayer);
   currentGame.showGameResults(humanPlayer, computerPlayer);
   setTimeout(resetGame, 2000);
-}
+};
 
 function resetGame() {
   if (currentGame.gameType === "classic") {
     displayClassicGame();
   } else if (currentGame.gameType === "difficult") {
     displayDifficultGame();
-  }
-}
+  };
+};
 
 function displayHumanChoice(humanChoice) {
   humanChoiceImage.innerHTML = ``;
@@ -124,8 +121,8 @@ function displayHumanChoice(humanChoice) {
     humanChoiceImage.innerHTML = `<img src="assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
   } else if (humanChoice === "spockButton") {
     humanChoiceImage.innerHTML = `<img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">`
-  }
-}
+  };
+};
 
 function displayComputerChoice(computerChoice) {
   computerChoiceImage.innerHTML = ``;
@@ -140,8 +137,8 @@ function displayComputerChoice(computerChoice) {
     computerChoiceImage.innerHTML = `<img src="assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
   } else if (computerChoice === "spockButton") {
     computerChoiceImage.innerHTML = `<img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">`
-  }
-}
+  };
+};
 
 function displayWinner(winner) {
   if (winner === "human") {
@@ -150,16 +147,15 @@ function displayWinner(winner) {
     changingTextView.innerText = "💻Computer won this round!💻";
   } else if (winner === "") {
     changingTextView.innerText = "😭It's a draw!😭";
-  }
-}
+  };
+};
 
 function displayWins(player1, player2) {
   humanWinDisplay.innerText = `WINS: ${player1}`;
   computerWinDisplay.innerText = `WINS: ${player2}`;
-}
+};
 
 function displayResultsView() {
-  removeHidden(resultsView);
-  addHidden(chooseFighterClassic);
-  addHidden(chooseFighterDifficult);
-}
+  removeHidden([resultsView]);
+  addHidden([chooseFighterClassic, chooseFighterDifficult]);
+};

@@ -38,6 +38,8 @@ class Game {
       this.winner = "human";
       player1.wins += 1;
     }
+    player1.saveWinsToStorage();
+    player2.saveWinsToStorage();
   }
   checkForDraw(player1, player2) {
     if (player1.choice === player2.choice) {
@@ -51,6 +53,6 @@ class Game {
     displayHumanChoice(player1.choice);
     displayComputerChoice(player2.choice);
     displayWinner(this.winner);
-    displayWins(player1.wins, player2.wins);
+    displayWins(player1.retrieveWinsFromStorage(), player2.retrieveWinsFromStorage());
   }
 }
