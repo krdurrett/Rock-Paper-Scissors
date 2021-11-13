@@ -13,6 +13,8 @@ class Player {
       var stringifiedComputerWins = JSON.stringify(this.wins);
       localStorage.setItem('computerWins', stringifiedComputerWins);
     }
+    console.log(stringifiedHumanWins);
+    console.log(stringifiedComputerWins);
   }
   retrieveWinsFromStorage() {
     if (this.name === "human") {
@@ -23,7 +25,6 @@ class Player {
       return parsedComputerWins;
     }
     // this.wins += parsedWins;
-
   }
   takeTurn() {
     var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];

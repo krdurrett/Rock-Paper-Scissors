@@ -53,6 +53,8 @@ class Game {
     displayHumanChoice(player1.choice);
     displayComputerChoice(player2.choice);
     displayWinner(this.winner);
+    var humanWins = player1.retrieveWinsFromStorage();
+    var computerWins = player2.retrieveWinsFromStorage();
     displayWins(player1.retrieveWinsFromStorage(), player2.retrieveWinsFromStorage());
   }
 }
