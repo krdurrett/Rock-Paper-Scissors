@@ -4,6 +4,7 @@ class Player {
     this.token = token;
     this.wins = 0;
     this.choice = "";
+    this.id = Date.now();
   }
   saveWinsToStorage() {
     if (this.name === "human") {
