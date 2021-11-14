@@ -38,11 +38,8 @@ class Game {
       this.winner = "human";
       player1.wins += 1;
     }
-    if (this.draw === false && this.winner === "human") {
-      player1.saveWinsToStorage();
-    } else if (this.draw === false && this.winner === "computer") {
-      player2.saveWinsToStorage();
-    }
+    player1.saveWinsToStorage();
+    player2.saveWinsToStorage();
   }
   checkForDraw(player1, player2) {
     if (player1.choice === player2.choice) {

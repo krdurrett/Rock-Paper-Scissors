@@ -94,8 +94,8 @@ function returnToGameChoice() {
 function playGame() {
   humanPlayer.takeTurn();
   computerPlayer.takeTurn();
-  currentGame.checkForDraw(humanPlayer, computerPlayer);
   currentGame.checkWinConditions(humanPlayer, computerPlayer);
+  currentGame.checkForDraw(humanPlayer, computerPlayer);
   currentGame.showGameResults(humanPlayer, computerPlayer);
   setTimeout(resetGame, 2000);
 };

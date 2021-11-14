@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)file:///Users/kayladurrett/turing/1module/Rock-Paper-Scissors/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="./Rock Paper Scissors_files/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./Rock Paper Scissors_files/css2" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+</head>
+<body>
+  <main>
+    <section class="left-section">
+      <div class="image-view">
+        <p class="emoji">👩‍🎤</p>
+        <p class="emoji-text">HUMAN</p>
+      </div>
+      <div class="wins-view">
+        <p class="human-wins" id="humanWins">WINS: 000</p>
+      </div>
+      <div class="change-button-view" id="changeButtonView">
+        <button class="change-game-button" id="changeGameButton">CHANGE GAME?</button>
+      </div>
+    </section>
+    <section class="game-board-section">
+      <section class="title-board">
+        <div class="title">
+          <p class="title-text">ROCK, PAPER, SCISSORS, LIZARD, SPOCK</p>
+        </div>
+        <div class="changing-text-box">
+          <p class="changing-text" id="changingText">Choose your fighter!</p>
+        </div>
+      </section>
+      <section class="game-board">
+        <div class="choose-game-buttons hidden" id="chooseGameButtons">
+          <button class="classic-game" id="classicGame">
+            <p class="game-title" id="classicGameTitle">🪨CLASSIC✂️</p>
+            <p class="rules-list" id="classicGameRules">rock &gt; scissors<br>paper &gt; rock<br>scissors &gt; paper</p>
+          </button>
+          <button class="difficult-game" id="difficultGame">
+            <p class="game-title" id="difficultGameTitle">🐊DIFFICULT🖖</p>
+            <p class="rules-list" id="difficultGameRules">rock &gt; scissors &amp; lizard<br>paper &gt; rock &amp; spock<br>scissors &gt; paper &amp; lizard<br>lizard &gt; spock &amp; paper<br>spock &gt; scissors &amp; rock</p>
+          </button>
+        </div>
+        <div class="choose-fighter-classic-view" id="chooseFighterClassicView">
+          <button class="fighter-button">
+            <img src="./Rock Paper Scissors_files/rock.png" alt="rock" class="image" id="rockButton">
+          </button>
+          <button class="fighter-button">
+            <img src="./Rock Paper Scissors_files/happy-paper.png" alt="paper" class="image" id="paperButton">
+          </button>
+          <button class="fighter-button">
+            <img src="./Rock Paper Scissors_files/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">
+          </button>
+        </div>
+        <div class="choose-fighter-difficult-view hidden" id="chooseFighterDifficultView">
+          <button class="fighter-button">
+            <img src="./Rock Paper Scissors_files/rock.png" alt="rock" class="image" id="rockButton">
+          </button>
+          <button class="fighter-button">
+            <img src="./Rock Paper Scissors_files/happy-paper.png" alt="paper" class="image" id="paperButton">
+          </button>
+          <button class="fighter-button">
+            <img src="./Rock Paper Scissors_files/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">
+          </button>
+          <button class="fighter-button">
+            <img src="./Rock Paper Scissors_files/flat-lizard.png" alt="lizard" class="image" id="lizardButton">
+          </button>
+          <button class="fighter-button">
+            <img src="./Rock Paper Scissors_files/spock-icon.png" alt="spock" class="image" id="spockButton">
+          </button>
+        </div>
+        <div class="results-view hidden" id="resultsView">
+          <div class="human-choice-image" id="humanChoiceImage"><img src="./Rock Paper Scissors_files/rock.png" alt="rock" class="image" id="rockButton"></div>
+          <div class="computer-choice-image" id="computerChoiceImage"><img src="./Rock Paper Scissors_files/rock.png" alt="rock" class="image" id="rockButton"></div>
+        </div>
+      </section>
+    </section>
+    <section class="right-section">
+      <div class="image-view">
+        <p class="emoji">💻</p>
+        <p class="emoji-text">COMPUTER</p>
+      </div>
+      <div class="wins-view">
+        <p class="computer-wins" id="computerWins">WINS: 011</p>
+      </div>
+    </section>
+  </main>
+  <script type="text/javascript" src="./Rock Paper Scissors_files/game.js"></script>
+  <script type="text/javascript" src="./Rock Paper Scissors_files/player.js"></script>
+  <script type="text/javascript" src="./Rock Paper Scissors_files/main.js"></script>
+
+
+</body></html>

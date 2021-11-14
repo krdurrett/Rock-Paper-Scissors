@@ -8,14 +8,12 @@ class Player {
   }
   saveWinsToStorage() {
     if (this.name === "human") {
-      let existingWins = JSON.parse(localStorage.getItem("human")) || 0;
-      existingWins += 1;
-      var stringifiedHumanWins = JSON.stringify(existingWins);
+      var existingWins = JSON.parse(localStorage.getItem("human")) || 0;
+      var stringifiedHumanWins = JSON.stringify(this.wins + existingWins);
       localStorage.setItem("human", stringifiedHumanWins);
     } else if (this.name === "computer") {
-      let existingWins = JSON.parse(localStorage.getItem("computer")) || 0;
-      existingWins += 1;
-      var stringifiedComputerWins = JSON.stringify(existingWins);
+      var existingWins = JSON.parse(localStorage.getItem("computer")) || 0;
+      var stringifiedComputerWins = JSON.stringify(this.wins + existingWins);
       localStorage.setItem("computer", stringifiedComputerWins);
     }
     // console.log(stringifiedHumanWins);
