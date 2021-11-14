@@ -42,22 +42,20 @@ class Game {
       player1.saveWinsToStorage();
     } else if (this.draw === false && this.winner === "computer") {
       player2.saveWinsToStorage();
-    }
-  }
+    };
+  };
   checkForDraw(player1, player2) {
     if (player1.choice === player2.choice) {
       this.winner = "";
       this.draw = true;
     } else {
       this.draw = false;
-    }
-  }
+    };
+  };
   showGameResults(player1, player2) {
     displayHumanChoice(player1.choice);
     displayComputerChoice(player2.choice);
     displayWinner(this.winner);
-    // var humanWins = player1.retrieveWinsFromStorage();
-    // var computerWins = player2.retrieveWinsFromStorage();
-    displayWins(player1.retrieveWinsFromStorage(), player2.retrieveWinsFromStorage());
-  }
-}
+    displayWins();
+  };
+};

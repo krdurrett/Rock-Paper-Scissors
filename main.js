@@ -1,9 +1,3 @@
-//.changing-text innerText options
-//Choose your fighter!
-//💻Computer won this round!💻
-//😭It's a draw!😭
-//👩‍🎤Human won this round!👩‍🎤
-
 //QUERY SELECTORS
 var gameChoiceView = document.querySelector("#chooseGameButtons");
 var classicGameButton = document.querySelector("#classicGame");
@@ -19,19 +13,9 @@ var humanChoiceImage = document.querySelector("#humanChoiceImage");
 var computerChoiceImage = document.querySelector("#computerChoiceImage");
 var humanWinDisplay = document.querySelector("#humanWins");
 var computerWinDisplay = document.querySelector("#computerWins");
-// var rockButton = document.querySelector("#rockButton");
-// var paperButton = document.querySelector("#paperButton");
-// var scissorsButton = document.querySelector("#scissorsButton");
-// var lizardButton = document.querySelector("#lizardButton");
-// var spockButton = document.querySelector("#spockButton");
 
 //GLOBAL VARIABLES
 var currentGame;
-// var humanPlayer;
-// var computerPlayer;
-// var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];
-// var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
-
 
 //EVENT LISTENERS
 gameChoiceView.addEventListener("click", initiateGamePlay);
@@ -39,8 +23,7 @@ changeGameButton.addEventListener("click", returnToGameChoice);
 for (var i = 0; i < fighterButton.length; i++) {
   fighterButton[i].addEventListener("click", playGame);
 };
-
-
+window.addEventListener("load", displayWins);
 
 //FUNCTIONS
 function getRandomIndex(array) {
@@ -71,6 +54,8 @@ function initiateGamePlay() {
     currentGame.gameType = "difficult";
     displayDifficultGame();
   };
+  humanPlayer.retrieveWinsFromStorage();
+  computerPlayer.retrieveWinsFromStorage();
 };
 
 function displayClassicGame() {
@@ -150,9 +135,17 @@ function displayWinner(winner) {
   };
 };
 
-function displayWins(player1, player2) {
-  humanWinDisplay.innerText = `WINS: ${player1}`;
-  computerWinDisplay.innerText = `WINS: ${player2}`;
+function displayWins() {
+  if (JSON.parse(localStorage.getItem("human")) === null) {
+    humanWinDisplay.innerText = `WINS: 0`;
+  } else {
+    humanWinDisplay.innerText = `WINS: ${JSON.parse(localStorage.getItem("human"))}`;
+  }
+  if (JSON.parse(localStorage.getItem("computer")) === null) {
+    computerWinDisplay.innerText = `WINS: 0`;
+  } else {
+    computerWinDisplay.innerText = `WINS: ${JSON.parse(localStorage.getItem("computer"))}`;
+  }
 };
 
 function displayResultsView() {

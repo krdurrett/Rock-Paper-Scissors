@@ -4,33 +4,33 @@ class Player {
     this.token = token;
     this.wins = 0;
     this.choice = "";
-    this.id = Date.now();
-  }
+  };
   saveWinsToStorage() {
     if (this.name === "human") {
-      let existingWins = JSON.parse(localStorage.getItem("human")) || 0;
-      existingWins += 1;
-      var stringifiedHumanWins = JSON.stringify(existingWins);
+      var stringifiedHumanWins = JSON.stringify(this.wins);
       localStorage.setItem("human", stringifiedHumanWins);
     } else if (this.name === "computer") {
-      let existingWins = JSON.parse(localStorage.getItem("computer")) || 0;
-      existingWins += 1;
-      var stringifiedComputerWins = JSON.stringify(existingWins);
+      var stringifiedComputerWins = JSON.stringify(this.wins);
       localStorage.setItem("computer", stringifiedComputerWins);
-    }
-    // console.log(stringifiedHumanWins);
-    // console.log(stringifiedComputerWins);
-  }
+    };
+  };
   retrieveWinsFromStorage() {
     if (this.name === "human") {
-      var parsedHumanWins = JSON.parse(localStorage.getItem("human"));
-      return parsedHumanWins;
+      if (JSON.parse(localStorage.getItem("human")) === null) {
+        this.wins = 0;
+      } else {
+        var parsedHumanWins = JSON.parse(localStorage.getItem("human"));
+        this.wins = parsedHumanWins;
+      }
     } else if (this.name === "computer") {
-      var parsedComputerWins = JSON.parse(localStorage.getItem("computer"));
-      return parsedComputerWins;
-    }
-    // this.wins += parsedWins;
-  }
+      if (JSON.parse(localStorage.getItem("computer")) === null) {
+        this.wins = 0;
+      } else {
+        var parsedComputerWins = JSON.parse(localStorage.getItem("computer"));
+        this.wins = parsedComputerWins;
+      };
+    };
+  };
   takeTurn() {
     var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];
     var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
@@ -41,6 +41,6 @@ class Player {
       this.choice = getRandomIndex(classicFighterOptions);
     } else if (this.name === "computer" && currentGame.gameType === "difficult") {
       this.choice = getRandomIndex(difficultFighterOptions);
-    }
-  }
-}
+    };
+  };
+};
