@@ -184,11 +184,6 @@ main {
   margin-bottom: 180px;
 }
 
-.human-choice-image,
-.computer-choice-image {
-  margin: 10px;
-}
-
 .hidden {
   display: none;
 }

@@ -16,10 +16,10 @@
         <p class="emoji-text">HUMAN</p>
       </div>
       <div class="wins-view">
-        <p class="human-wins">WINS: 0</p>
+        <p class="human-wins" id="humanWins">WINS: 0</p>
       </div>
-      <div class="change-button-view hidden">
-        <button class="change-game-button">CHANGE GAME?</button>
+      <div class="change-button-view hidden" id="changeButtonView">
+        <button class="change-game-button" id="changeGameButton">CHANGE GAME?</button>
       </div>
     </section>
     <section class="game-board-section">
@@ -28,21 +28,21 @@
           <p class="title-text">ROCK, PAPER, SCISSORS, LIZARD, SPOCK</p>
         </div>
         <div class="changing-text-box">
-          <p class="changing-text">Choose your game!</p>
+          <p class="changing-text" id="changingText">Choose your game!</p>
         </div>
       </section>
       <section class="game-board">
-        <div class="choose-game-buttons">
+        <div class="choose-game-buttons" id="chooseGameButtons">
           <button class="classic-game" id="classicGame">
-            <p class="game-title" id="classicGame">🪨CLASSIC✂️</p>
-            <p class="rules-list" id="classicGame">rock > scissors<br>paper > rock<br>scissors > paper</p>
+            <p class="game-title" id="classicGameTitle">🪨CLASSIC✂️</p>
+            <p class="rules-list" id="classicGameRules">rock > scissors<br>paper > rock<br>scissors > paper</p>
           </button>
           <button class="difficult-game" id="difficultGame">
-            <p class="game-title" id="difficultGame">🐊DIFFICULT🖖</p>
-            <p class="rules-list" id="difficultGame">rock > scissors & lizard<br>paper > rock & spock<br>scissors > paper & lizard<br>lizard > spock & paper<br>spock > scissors & rock</p>
+            <p class="game-title" id="difficultGameTitle">🐊DIFFICULT🖖</p>
+            <p class="rules-list" id="difficultGameRules">rock > scissors & lizard<br>paper > rock & spock<br>scissors > paper & lizard<br>lizard > spock & paper<br>spock > scissors & rock</p>
           </button>
         </div>
-        <div class="choose-fighter-classic-view hidden">
+        <div class="choose-fighter-classic-view hidden" id="chooseFighterClassicView">
           <button class="fighter-button">
             <img src="assets/rock.png" alt="rock" class="image" id="rockButton">
           </button>
@@ -53,7 +53,7 @@
             <img src="assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">
           </button>
         </div>
-        <div class="choose-fighter-difficult-view hidden">
+        <div class="choose-fighter-difficult-view hidden" id="chooseFighterDifficultView">
           <button class="fighter-button">
             <img src="assets/rock.png" alt="rock" class="image" id="rockButton">
           </button>
@@ -70,11 +70,11 @@
             <img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">
           </button>
         </div>
-        <div class="results-view hidden">
-          <div class="human-choice-image">
+        <div class="results-view hidden" id="resultsView">
+          <div class="human-choice-image" id="humanChoiceImage">
             <img src="assets/happy-paper.png" alt="paper" id="humanChoiceImage">
           </div>
-          <div class="computer-choice-image">
+          <div class="computer-choice-image" id="computerChoiceImage">
             <img src="assets/happy-scissors.png" alt="scissors" id="computerChoiceImage">
           </div>
         </div>
@@ -86,7 +86,7 @@
         <p class="emoji-text">COMPUTER</p>
       </div>
       <div class="wins-view">
-        <p class="computer-wins">WINS: 0</p>
+        <p class="computer-wins" id="computerWins">WINS: 0</p>
       </div>
     </section>
   </main>
