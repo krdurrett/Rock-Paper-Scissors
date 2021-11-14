@@ -82,7 +82,7 @@ function playGame() {
   currentGame.checkForDraw(humanPlayer, computerPlayer);
   currentGame.checkWinConditions(humanPlayer, computerPlayer);
   currentGame.showGameResults(humanPlayer, computerPlayer);
-  setTimeout(resetGame, 2000);
+  setTimeout(resetGame, 1500);
 };
 
 function resetGame() {
