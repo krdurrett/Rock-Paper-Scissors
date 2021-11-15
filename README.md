@@ -38,9 +38,9 @@
 
 ![Classic play view](https://media.giphy.com/media/WGeVL26owgGEWfVHC5/giphy.gif)
 
-## Favorites View:
+## Difficult Game Play:
 
-![Screen Shot 2021-10-31 at 11 16 10 AM](https://user-images.githubusercontent.com/88299275/139595746-b456ea1e-c06d-4ede-a087-512581b0a786.png)
+![Difficult Game Play](https://media.giphy.com/media/UJJNWb6egZ5Lyb56Gg/giphy.gif)
 
 ## Add Recipe View:
 
