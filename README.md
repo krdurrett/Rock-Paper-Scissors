@@ -6,7 +6,7 @@
   
 ## Project specs
 
-  - This is traditional Rock Paper Scissors game, with an extra challenging Lizard Spock addition! 
+  - This is a traditional Rock Paper Scissors game, with an extra challenging Lizard Spock addition! 
   - Instructions and Rubric for this project can be found [HERE.](https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo.html)
 
 ## Technologies used
