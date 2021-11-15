@@ -37,7 +37,7 @@ class Game {
     } else if (player1.choice === "spockButton" && (player2.choice === "scissorsButton" || player2.choice === "rockButton")) {
       this.winner = "human";
       player1.wins += 1;
-    }
+    };
     if (this.draw === false && this.winner === "human") {
       player1.saveWinsToStorage();
     } else if (this.draw === false && this.winner === "computer") {
@@ -57,5 +57,12 @@ class Game {
     displayComputerChoice(player2.choice);
     displayWinner(this.winner);
     displayWins();
+  };
+  resetGame() {
+    if (this.gameType === "classic") {
+      displayClassicGame();
+    } else if (this.gameType === "difficult") {
+      displayDifficultGame();
+    };
   };
 };

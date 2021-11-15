@@ -82,15 +82,11 @@ function playGame() {
   currentGame.checkForDraw(humanPlayer, computerPlayer);
   currentGame.checkWinConditions(humanPlayer, computerPlayer);
   currentGame.showGameResults(humanPlayer, computerPlayer);
-  setTimeout(resetGame, 1500);
+  setTimeout(gameRefresh, 1500);
 };
 
-function resetGame() {
-  if (currentGame.gameType === "classic") {
-    displayClassicGame();
-  } else if (currentGame.gameType === "difficult") {
-    displayDifficultGame();
-  };
+function gameRefresh() {
+  currentGame.resetGame();
 };
 
 function displayHumanChoice(humanChoice) {
