@@ -30,9 +30,9 @@
   Click around the site to choose Classic or Difficult game play, then you may select which fighter you'd like. You are playing against the computer. Your wins     will persist and be shown on the side of the screen. 
   
   
-## Main Screen View:
+## Main Game Choice View:
 
-![Screen Shot 2021-10-31 at 11 13 33 AM](https://user-images.githubusercontent.com/88299275/139595700-8ee00572-43d5-4fe0-8aee-a83abf5d9e40.png)
+![Game choice view](https://media.giphy.com/media/7Wp1zesswXCvA3llKW/giphy.gif)
 
 ## Recipe Results View:
 
