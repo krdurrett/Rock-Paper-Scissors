@@ -22,10 +22,10 @@
 
   This game can be accessed through the following steps:
 
-    Fork the project to your own Github account
-    Clone the repository to your local machine
-    cd into the project
-    Type “open index.html” into your terminal to view the application in your browser OR open the project in your editor to view the code
+   Fork the project to your own Github account
+   Clone the repository to your local machine
+   cd into the project
+   Type “open index.html” into your terminal to view the application in your browser OR open the project in your editor to view the code
     
   Click around the site to choose Classic or Difficult game play, then you may select which fighter you'd like. You are playing against the computer. Your wins     will persist and be shown on the side of the screen. 
   
