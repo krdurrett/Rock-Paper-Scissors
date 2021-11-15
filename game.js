@@ -52,17 +52,8 @@ class Game {
       this.draw = false;
     };
   };
-  showGameResults(player1, player2) {
-    displayHumanChoice(player1.choice);
-    displayComputerChoice(player2.choice);
-    displayWinner(this.winner);
-    displayWins();
-  };
   resetGame() {
-    if (this.gameType === "classic") {
-      displayClassicGame();
-    } else if (this.gameType === "difficult") {
-      displayDifficultGame();
-    };
+    this.winner = "";
+    this.draw = false;
   };
 };
