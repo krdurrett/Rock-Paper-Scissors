@@ -81,16 +81,24 @@ function playGame() {
   computerPlayer.takeTurn();
   currentGame.checkForDraw(humanPlayer, computerPlayer);
   currentGame.checkWinConditions(humanPlayer, computerPlayer);
-  currentGame.showGameResults(humanPlayer, computerPlayer);
-  setTimeout(resetGame, 2000);
+  showGameResults(humanPlayer, computerPlayer, currentGame);
+  setTimeout(gameRefresh, 1500);
 };
 
-function resetGame() {
-  if (currentGame.gameType === "classic") {
+function gameRefresh() {
+  currentGame.resetGame();
+  if (currentGame.winner === "" && currentGame.gameType === "classic") {
     displayClassicGame();
-  } else if (currentGame.gameType === "difficult") {
+  } else if (currentGame.winner === "" && currentGame.gameType === "difficult") {
     displayDifficultGame();
   };
+};
+
+function showGameResults(player1, player2, game) {
+  displayHumanChoice(player1.choice);
+  displayComputerChoice(player2.choice);
+  displayWinner(game.winner);
+  displayWins();
 };
 
 function displayHumanChoice(humanChoice) {
@@ -121,7 +129,7 @@ function displayComputerChoice(computerChoice) {
   } else if (computerChoice === "lizardButton") {
     computerChoiceImage.innerHTML = `<img src="assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
   } else if (computerChoice === "spockButton") {
-    computerChoiceImage.innerHTML = `<img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">`
+    computerChoiceImage.innerHTML = `<img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">`;
   };
 };
 
@@ -140,12 +148,12 @@ function displayWins() {
     humanWinDisplay.innerText = `WINS: 0`;
   } else {
     humanWinDisplay.innerText = `WINS: ${JSON.parse(localStorage.getItem("human"))}`;
-  }
+  };
   if (JSON.parse(localStorage.getItem("computer")) === null) {
     computerWinDisplay.innerText = `WINS: 0`;
   } else {
     computerWinDisplay.innerText = `WINS: ${JSON.parse(localStorage.getItem("computer"))}`;
-  }
+  };
 };
 
 function displayResultsView() {

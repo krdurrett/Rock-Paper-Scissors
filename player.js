@@ -21,7 +21,7 @@ class Player {
       } else {
         var parsedHumanWins = JSON.parse(localStorage.getItem("human"));
         this.wins = parsedHumanWins;
-      }
+      };
     } else if (this.name === "computer") {
       if (JSON.parse(localStorage.getItem("computer")) === null) {
         this.wins = 0;
@@ -36,7 +36,7 @@ class Player {
     var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
     if (this.name === "human") {
       this.choice = event.target.id;
-    }
+    };
     if (this.name === "computer" && currentGame.gameType === "classic") {
       this.choice = getRandomIndex(classicFighterOptions);
     } else if (this.name === "computer" && currentGame.gameType === "difficult") {
