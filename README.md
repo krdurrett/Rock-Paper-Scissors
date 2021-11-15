@@ -42,9 +42,9 @@
 
 ![Difficult Game Play](https://media.giphy.com/media/UJJNWb6egZ5Lyb56Gg/giphy.gif)
 
-## Add Recipe View:
+## Change Game Play:
 
-![Screen Shot 2021-10-31 at 11 47 46 AM](https://user-images.githubusercontent.com/88299275/139595758-58302e49-ebe8-4247-ba2c-e069415b3284.png)
+![Change game functionality](https://media.giphy.com/media/JVoDMksM2FCD4EukqC/giphy.gif)
 
 ## Future Additions
 
