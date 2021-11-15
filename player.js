@@ -32,8 +32,8 @@ class Player {
     };
   };
   takeTurn() {
-    var classicFighterOptions = ["rockButton", "paperButton", "scissorsButton"];
-    var difficultFighterOptions =["rockButton", "paperButton", "scissorsButton", "lizardButton", "spockButton"];
+    var classicFighterOptions = ["rock", "paper", "scissors"];
+    var difficultFighterOptions =["rock", "paper", "scissors", "lizard", "spock"];
     if (this.name === "human") {
       this.choice = event.target.id;
     };

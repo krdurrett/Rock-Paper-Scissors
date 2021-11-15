@@ -13,6 +13,14 @@ var humanChoiceImage = document.querySelector("#humanChoiceImage");
 var computerChoiceImage = document.querySelector("#computerChoiceImage");
 var humanWinDisplay = document.querySelector("#humanWins");
 var computerWinDisplay = document.querySelector("#computerWins");
+var rockEmojiClassic = document.querySelector("#classicChoiceRock");
+var paperEmojiClassic = document.querySelector("#classicChoicePaper");
+var scissorsEmojiClassic = document.querySelector("#classicChoiceScissors");
+var rockEmojiDifficult = document.querySelector("#difficultChoiceRock");
+var paperEmojiDifficult = document.querySelector("#difficultChoicePaper");
+var scissorsEmojiDifficult = document.querySelector("#difficultChoiceScissors");
+var lizardEmojiDifficult = document.querySelector("#difficultChoiceLizard");
+var spockEmojiDifficult = document.querySelector("#difficultChoiceSpock");
 
 //GLOBAL VARIABLES
 var currentGame;
@@ -59,13 +67,13 @@ function initiateGamePlay() {
 };
 
 function displayClassicGame() {
-  addHidden([gameChoiceView, resultsView]);
+  addHidden([gameChoiceView, resultsView, rockEmojiClassic, paperEmojiClassic, scissorsEmojiClassic]);
   removeHidden([chooseFighterClassic, changeGameButtonView]);
   changingTextView.innerText = "Choose your fighter!";
 };
 
 function displayDifficultGame() {
-  addHidden([gameChoiceView, resultsView]);
+  addHidden([gameChoiceView, resultsView, lizardEmojiDifficult, spockEmojiDifficult, rockEmojiDifficult, paperEmojiDifficult, scissorsEmojiDifficult]);
   removeHidden([chooseFighterDifficult, changeGameButtonView]);
   changingTextView.innerText = "Choose your fighter!";
 };
@@ -79,14 +87,40 @@ function returnToGameChoice() {
 function playGame() {
   humanPlayer.takeTurn();
   computerPlayer.takeTurn();
+  displayHumanChoiceEmoji();
   currentGame.checkForDraw(humanPlayer, computerPlayer);
   currentGame.checkWinConditions(humanPlayer, computerPlayer);
-  showGameResults(humanPlayer, computerPlayer, currentGame);
+  setTimeout(function(){showGameResults(humanPlayer, computerPlayer, currentGame)}, 300);
   setTimeout(gameRefresh, 1500);
+};
+
+function displayHumanChoiceEmoji() {
+  if (currentGame.gameType === "classic") {
+    if (humanPlayer.choice === "rock") {
+      removeHidden([rockEmojiClassic]);
+    } else if (humanPlayer.choice === "paper") {
+      removeHidden([paperEmojiClassic]);
+    } else if (humanPlayer.choice === "scissors") {
+      removeHidden([scissorsEmojiClassic]);
+    };
+  } else if (currentGame.gameType === "difficult") {
+    if (humanPlayer.choice === "lizard") {
+      removeHidden([lizardEmojiDifficult]);
+    } else if (humanPlayer.choice === "spock") {
+      removeHidden([spockEmojiDifficult]);
+    } else if (humanPlayer.choice === "rock") {
+      removeHidden([rockEmojiDifficult]);
+    } else if (humanPlayer.choice === "paper") {
+      removeHidden([paperEmojiDifficult]);
+    } else if (humanPlayer.choice === "scissors") {
+      removeHidden([scissorsEmojiDifficult]);
+    };
+  };
 };
 
 function gameRefresh() {
   currentGame.resetGame();
+  removeHidden([changeGameButton]);
   if (currentGame.winner === "" && currentGame.gameType === "classic") {
     displayClassicGame();
   } else if (currentGame.winner === "" && currentGame.gameType === "difficult") {
@@ -95,6 +129,7 @@ function gameRefresh() {
 };
 
 function showGameResults(player1, player2, game) {
+  addHidden([changeGameButton]);
   displayHumanChoice(player1.choice);
   displayComputerChoice(player2.choice);
   displayWinner(game.winner);
@@ -104,15 +139,15 @@ function showGameResults(player1, player2, game) {
 function displayHumanChoice(humanChoice) {
   humanChoiceImage.innerHTML = ``;
   displayResultsView();
-  if (humanChoice === "paperButton") {
+  if (humanChoice === "paper") {
     humanChoiceImage.innerHTML = `<img src="assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
-  } else if (humanChoice === "rockButton") {
+  } else if (humanChoice === "rock") {
     humanChoiceImage.innerHTML = `<img src="assets/rock.png" alt="rock" class="image" id="rockButton">`;
-  } else if (humanChoice === "scissorsButton") {
+  } else if (humanChoice === "scissors") {
     humanChoiceImage.innerHTML = `<img src="assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
-  } else if (humanChoice === "lizardButton") {
+  } else if (humanChoice === "lizard") {
     humanChoiceImage.innerHTML = `<img src="assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
-  } else if (humanChoice === "spockButton") {
+  } else if (humanChoice === "spock") {
     humanChoiceImage.innerHTML = `<img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">`
   };
 };
@@ -120,15 +155,15 @@ function displayHumanChoice(humanChoice) {
 function displayComputerChoice(computerChoice) {
   computerChoiceImage.innerHTML = ``;
   displayResultsView();
-  if (computerChoice === "paperButton") {
+  if (computerChoice === "paper") {
     computerChoiceImage.innerHTML = `<img src="assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
-  } else if (computerChoice === "rockButton") {
+  } else if (computerChoice === "rock") {
     computerChoiceImage.innerHTML = `<img src="assets/rock.png" alt="rock" class="image" id="rockButton">`;
-  } else if (computerChoice === "scissorsButton") {
+  } else if (computerChoice === "scissors") {
     computerChoiceImage.innerHTML = `<img src="assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
-  } else if (computerChoice === "lizardButton") {
+  } else if (computerChoice === "lizard") {
     computerChoiceImage.innerHTML = `<img src="assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
-  } else if (computerChoice === "spockButton") {
+  } else if (computerChoice === "spock") {
     computerChoiceImage.innerHTML = `<img src="assets/spock-icon.png" alt="spock" class="image" id="spockButton">`;
   };
 };
