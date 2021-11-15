@@ -169,12 +169,17 @@ main {
   background-color: transparent;
   border: 0;
   padding: 0;
-  margin: 10px;
+  margin: 20px;
 }
 
 .image {
   height: 100%;
   width: 100%;
+}
+
+.emoji {
+  font-size: 30px;
+  margin: 0;
 }
 
 .results-view {

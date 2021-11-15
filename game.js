@@ -7,34 +7,34 @@ class Game {
     this.draw = false;
   }
   checkWinConditions(player1, player2) {
-    if (player1.choice === "rockButton" && (player2.choice === "paperButton" || player2.choice === "spockButton")) {
+    if (player1.choice === "rock" && (player2.choice === "paper" || player2.choice === "spock")) {
       this.winner = "computer";
       player2.wins += 1;
-    }else if (player1.choice === "rockButton" && (player2.choice === "scissorsButton" || player2.choice === "lizardButton")) {
+    }else if (player1.choice === "rock" && (player2.choice === "scissors" || player2.choice === "lizard")) {
       this.winner = "human";
       player1.wins += 1;
-    }else if (player1.choice === "paperButton" && (player2.choice === "scissorsButton" || player2.choice === "lizardButton")) {
+    }else if (player1.choice === "paper" && (player2.choice === "scissors" || player2.choice === "lizard")) {
       this.winner = "computer";
       player2.wins += 1;
-    } else if (player1.choice === "paperButton" && (player2.choice === "rockButton" || player2.choice === "spockButton")) {
+    } else if (player1.choice === "paper" && (player2.choice === "rock" || player2.choice === "spock")) {
       this.winner = "human";
       player1.wins += 1;
-    } else if (player1.choice === "scissorsButton" && (player2.choice === "rockButton" || player2.choice === "spockButton")) {
+    } else if (player1.choice === "scissors" && (player2.choice === "rock" || player2.choice === "spock")) {
       this.winner = "computer";
       player2.wins += 1;
-    } else if (player1.choice === "scissorsButton" && (player2.choice === "paperButton" || player2.choice === "lizardButton")) {
+    } else if (player1.choice === "scissors" && (player2.choice === "paper" || player2.choice === "lizard")) {
       this.winner = "human";
       player1.wins += 1;
-    } else if (player1.choice === "lizardButton" && (player2.choice === "scissorsButton" || player2.choice === "rockButton")) {
+    } else if (player1.choice === "lizard" && (player2.choice === "scissors" || player2.choice === "rock")) {
       this.winner = "computer";
       player2.wins += 1;
-    } else if (player1.choice === "lizardButton" && (player2.choice === "spockButton" || player2.choice === "paperButton")) {
+    } else if (player1.choice === "lizard" && (player2.choice === "spock" || player2.choice === "paper")) {
       this.winner = "human";
       player1.wins += 1;
-    } else if (player1.choice === "spockButton" && (player2.choice === "paperButton" || player2.choice === "lizardButton")) {
+    } else if (player1.choice === "spock" && (player2.choice === "paper" || player2.choice === "lizard")) {
       this.winner = "computer";
       player2.wins += 1;
-    } else if (player1.choice === "spockButton" && (player2.choice === "scissorsButton" || player2.choice === "rockButton")) {
+    } else if (player1.choice === "spock" && (player2.choice === "scissors" || player2.choice === "rock")) {
       this.winner = "human";
       player1.wins += 1;
     };
@@ -54,6 +54,5 @@ class Game {
   };
   resetGame() {
     this.winner = "";
-    this.draw = false;
   };
 };
