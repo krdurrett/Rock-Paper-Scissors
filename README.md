@@ -20,8 +20,14 @@
 
 ## Instructions for running and viewing the project
 
-  
-  Click around the site to choose a random meal option, save your favorite meals, and even add your own meals!
+  This game can be accessed through the following steps:
+
+    Fork the project to your own Github account
+    Clone the repository to your local machine
+    cd into the project
+    Type “open index.html” into your terminal to view the application in your browser OR open the project in your editor to view the code
+    
+  Click around the site to choose Classic or Difficult game play, then you may select which fighter you'd like. You are playing against the computer. Your wins     will persist and be shown on the side of the screen. 
   
   
 ## Main Screen View:
@@ -42,14 +48,14 @@
 
 ## Future Additions
 
- - Add login-in page.
- - Create an 'All-recipe' page where user can view all available recipes sorted by type, and be able to add/edit/delete those recipes.
- - Utilize local storage, so that the user’s favorite recipes will persist on page reload.
+ - Create a button to clear the wins.
+ - Create more interactive buttons, and animated display.
+ - Create sounds to alert you of game play.
 
 ## Wins 
 
-- Learned how to utilize CSS to create styling on a page, particularly flexbox.
-- Learned how to structure a page using HTML.
-- Expanded knowledge of inner workings of the DOM by manipulating HTML and CSS elements using Javascript.
-- Ability to continue working past my expected CYOA extensions. 
-- Created methods for user interaction and customization.
+- Utilized localStorage to save wins at the appropriate time and have them displayed at the appropriate interval.
+- Learning to create more clean HTML and CSS code for page styling.
+- Delved more in to the separation of the Data Model (the Game and the Players) from DOM manipulation.
+- Created the game in less time than I had originally budgeted. 
+
