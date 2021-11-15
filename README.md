@@ -34,9 +34,9 @@
 
 ![Game choice view](https://media.giphy.com/media/7Wp1zesswXCvA3llKW/giphy.gif)
 
-## Recipe Results View:
+## Classic Game Play:
 
-![Screen Shot 2021-10-31 at 11 46 55 AM](https://user-images.githubusercontent.com/88299275/139595730-37a62f26-7f50-4bba-b890-4aba17e1e59f.png)
+![Classic play view](https://media.giphy.com/media/WGeVL26owgGEWfVHC5/giphy.gif)
 
 ## Favorites View:
 
