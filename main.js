@@ -92,7 +92,7 @@ function clearLocalStorage() {
   humanPlayer.resetWins();
   computerPlayer.resetWins();
   displayWins();
-}
+};
 
 function playGame() {
   humanPlayer.takeTurn();
