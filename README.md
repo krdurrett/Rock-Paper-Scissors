@@ -48,7 +48,6 @@
 
 ## Future Additions
 
- - Create a button to clear the wins.
  - Create more interactive buttons, and animated display.
  - Create sounds to alert you of game play.
 
