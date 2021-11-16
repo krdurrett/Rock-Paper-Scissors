@@ -32,7 +32,7 @@
   
 ## Main Game Choice View:
 
-![Game choice view](https://media.giphy.com/media/7Wp1zesswXCvA3llKW/giphy.gif)
+![Game choice view](https://media.giphy.com/media/BdXk4vi53eU6IE2kl8/giphy.gif)
 
 ## Classic Game Play:
 
