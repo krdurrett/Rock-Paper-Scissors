@@ -44,7 +44,7 @@
 
 ## Change Game Play:
 
-![Change game functionality](https://media.giphy.com/media/JVoDMksM2FCD4EukqC/giphy.gif)
+![Change game functionality](https://media.giphy.com/media/V6QXx5c8wo6Hvsresx/giphy.gif)
 
 ## Future Additions
 
