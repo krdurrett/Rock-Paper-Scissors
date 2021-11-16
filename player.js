@@ -43,4 +43,7 @@ class Player {
       this.choice = getRandomIndex(difficultFighterOptions);
     };
   };
+  resetWins() {
+    this.wins = 0;
+  };
 };

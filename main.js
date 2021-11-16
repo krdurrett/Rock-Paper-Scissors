@@ -89,6 +89,8 @@ function returnToGameChoice() {
 
 function clearLocalStorage() {
   localStorage.clear();
+  humanPlayer.resetWins();
+  computerPlayer.resetWins();
   displayWins();
 }
 
