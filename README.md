@@ -40,7 +40,7 @@
 
 ## Difficult Game Play:
 
-![Difficult Game Play](https://media.giphy.com/media/UJJNWb6egZ5Lyb56Gg/giphy.gif)
+![Difficult Game Play](https://media.giphy.com/media/Yf8VnIrngDe5HxJ9X8/giphy.gif)
 
 ## Change Game Play:
 
