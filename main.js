@@ -6,8 +6,10 @@ var chooseFighterClassic = document.querySelector("#chooseFighterClassicView");
 var chooseFighterDifficult = document.querySelector("#chooseFighterDifficultView");
 var changeGameButtonView = document.querySelector("#changeButtonView");
 var changeGameButton = document.querySelector("#changeGameButton");
+var clearWinsButtonView = document.querySelector("#clearWinsView");
+var clearWinsButton = document.querySelector("#clearWinsButton");
 var changingTextView = document.querySelector("#changingText");
-var fighterButton = document.querySelectorAll(".fighter-button");
+var fighterButton = document.querySelectorAll(".image");
 var resultsView = document.querySelector("#resultsView");
 var humanChoiceImage = document.querySelector("#humanChoiceImage");
 var computerChoiceImage = document.querySelector("#computerChoiceImage");
@@ -28,6 +30,7 @@ var currentGame;
 //EVENT LISTENERS
 gameChoiceView.addEventListener("click", initiateGamePlay);
 changeGameButton.addEventListener("click", returnToGameChoice);
+clearWinsButton.addEventListener("click", clearLocalStorage);
 for (var i = 0; i < fighterButton.length; i++) {
   fighterButton[i].addEventListener("click", playGame);
 };
@@ -84,6 +87,13 @@ function returnToGameChoice() {
   changingTextView.innerText = "Choose your game!";
 };
 
+function clearLocalStorage() {
+  localStorage.clear();
+  humanPlayer.resetWins();
+  computerPlayer.resetWins();
+  displayWins();
+};
+
 function playGame() {
   humanPlayer.takeTurn();
   computerPlayer.takeTurn();
@@ -120,7 +130,7 @@ function displayHumanChoiceEmoji() {
 
 function gameRefresh() {
   currentGame.resetGame();
-  removeHidden([changeGameButton]);
+  removeHidden([changeGameButton, clearWinsButton]);
   if (currentGame.winner === "" && currentGame.gameType === "classic") {
     displayClassicGame();
   } else if (currentGame.winner === "" && currentGame.gameType === "difficult") {
@@ -129,7 +139,7 @@ function gameRefresh() {
 };
 
 function showGameResults(player1, player2, game) {
-  addHidden([changeGameButton]);
+  addHidden([changeGameButton, clearWinsButton]);
   displayHumanChoice(player1.choice);
   displayComputerChoice(player2.choice);
   displayWinner(game.winner);

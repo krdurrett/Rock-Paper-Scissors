@@ -52,13 +52,15 @@ main {
   font-weight: 50;
 }
 
-.change-button-view {
+.change-button-view,
+.clear-wins-view {
   flex-grow: 2;
   display: flex;
   align-items: center;
 }
 
-.change-game-button {
+.change-game-button,
+.clear-wins-button {
   background-color: #480b7a;
   color: white;
   border: 0;
@@ -66,7 +68,8 @@ main {
   margin-bottom: 300px;
 }
 
-.change-game-button:hover {
+.change-game-button:hover,
+.clear-wins-button:hover {
   background-color: white;
   color:  #480b7a;
   border: 0;
