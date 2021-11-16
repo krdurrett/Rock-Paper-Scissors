@@ -36,7 +36,7 @@
 
 ## Classic Game Play:
 
-![Classic play view](https://media.giphy.com/media/WGeVL26owgGEWfVHC5/giphy.gif)
+![Classic play view](https://media.giphy.com/media/70sWeQUw8tts5nK5rq/giphy.gif)
 
 ## Difficult Game Play:
 
