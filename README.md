@@ -46,6 +46,10 @@
 
 ![Change game functionality](https://media.giphy.com/media/V6QXx5c8wo6Hvsresx/giphy.gif)
 
+## Ability to Clear Wins:
+
+![Clear Wins](https://media.giphy.com/media/CUsu70PFDSTj34cTF7/giphy.gif)
+
 ## Future Additions
 
  - Create more interactive buttons, and animated display.
