@@ -20,7 +20,6 @@
 
 ## Instructions for running and viewing the project
 
-  [GitHub Pages Deployed site](https://krdurrett.github.io/Rock-Paper-Scissors/)
 
   This game can be accessed through the following steps:
 
