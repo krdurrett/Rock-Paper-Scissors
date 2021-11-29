@@ -24,110 +24,119 @@ var spockEmojiDifficult = document.querySelector("#difficultChoiceSpock");
 //GLOBAL VARIABLES
 var currentGame;
 
-//EVENT LISTENERS
-gameChoiceView.addEventListener("click", initiateGamePlay);
-changeGameButton.addEventListener("click", returnToGameChoice);
-clearWinsButton.addEventListener("click", clearLocalStorage);
-for (var i = 0; i < fighterButton.length; i++) {
-  fighterButton[i].addEventListener("click", playGame);
-}
-window.addEventListener("load", displayWins);
-
 //FUNCTIONS
-function getRandomIndex(array) {
+let getRandomIndex = array => {
   var randomIndex = Math.floor(Math.random() * array.length);
   return array[randomIndex];
 }
 
-function addHidden(elements) {
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].classList.add("hidden");
-  }
+let addHidden = elements => {
+  elements.forEach(item => {
+    item.classList.add("hidden");
+  })
 }
 
-function removeHidden(elements) {
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].classList.remove("hidden");
-  }
+let removeHidden = elements => {
+  elements.forEach(item => {
+    item.classList.remove("hidden");
+  })
 }
 
-function initiateGamePlay() {
+let initiateGamePlay = () => {
   humanPlayer = new Player("human", "👩‍🎤");
   computerPlayer = new Player("computer", "💻,");
   currentGame = new Game(humanPlayer, computerPlayer);
-  if (event.target.id === "classicGame" || event.target.id === "classicGameTitle" || event.target.id === "classicGameRules") {
-    currentGame.gameType = "classic";
-    displayClassicGame();
-  } else if (event.target.id === "difficultGame" || event.target.id === "difficultGameTitle" || event.target.id === "difficultGameRules") {
-    currentGame.gameType = "difficult";
-    displayDifficultGame();
+  switch(true) {
+    case event.target.id === "classicGame":
+    case event.target.id === "classicGameTitle":
+    case event.target.id === "classicGameRules":
+      currentGame.gameType = "classic";
+      displayClassicGame();
+      break;
+    case event.target.id === "difficultGame":
+    case event.target.id === "difficultGameTitle":
+    case event.target.id === "difficultGameRules":
+      currentGame.gameType = "difficult";
+      displayDifficultGame();
   }
   humanPlayer.retrieveWinsFromStorage();
   computerPlayer.retrieveWinsFromStorage();
 }
 
-function displayClassicGame() {
+let displayClassicGame = () => {
   addHidden([gameChoiceView, resultsView, rockEmojiClassic, paperEmojiClassic, scissorsEmojiClassic]);
   removeHidden([chooseFighterClassic, changeGameButtonView]);
   changingTextView.innerText = "Choose your fighter!";
 }
 
-function displayDifficultGame() {
+let displayDifficultGame = () => {
   addHidden([gameChoiceView, resultsView, lizardEmojiDifficult, spockEmojiDifficult, rockEmojiDifficult, paperEmojiDifficult, scissorsEmojiDifficult]);
   removeHidden([chooseFighterDifficult, changeGameButtonView]);
   changingTextView.innerText = "Choose your fighter!";
 }
 
-function returnToGameChoice() {
+let returnToGameChoice = () => {
   removeHidden([gameChoiceView]);
   addHidden([chooseFighterClassic, chooseFighterDifficult, changeGameButtonView, resultsView]);
   changingTextView.innerText = "Choose your game!";
 }
 
-function clearLocalStorage() {
+let clearLocalStorage = () => {
   localStorage.clear();
   humanPlayer.resetWins();
   computerPlayer.resetWins();
   displayWins();
 }
 
-function playGame() {
+let playGame = () => {
   humanPlayer.takeTurn();
   computerPlayer.takeTurn();
   displayHumanChoiceEmoji();
   currentGame.checkForDraw(humanPlayer, computerPlayer);
   currentGame.checkWinConditions(humanPlayer, computerPlayer);
-  setTimeout(function() {
+  setTimeout(() => {
     showGameResults(humanPlayer, computerPlayer, currentGame)
   }, 300);
   setTimeout(gameRefresh, 1500);
 }
 
-function displayHumanChoiceEmoji() {
-  if (currentGame.gameType === "classic") {
-    if (humanPlayer.choice === "rock") {
-      removeHidden([rockEmojiClassic]);
-    } else if (humanPlayer.choice === "paper") {
-      removeHidden([paperEmojiClassic]);
-    } else if (humanPlayer.choice === "scissors") {
-      removeHidden([scissorsEmojiClassic]);
-    }
-  } else if (currentGame.gameType === "difficult") {
-    if (humanPlayer.choice === "lizard") {
-      removeHidden([lizardEmojiDifficult]);
-    } else if (humanPlayer.choice === "spock") {
-      removeHidden([spockEmojiDifficult]);
-    } else if (humanPlayer.choice === "rock") {
-      removeHidden([rockEmojiDifficult]);
-    } else if (humanPlayer.choice === "paper") {
-      removeHidden([paperEmojiDifficult]);
-    } else if (humanPlayer.choice === "scissors") {
-      removeHidden([scissorsEmojiDifficult]);
-    }
+let displayHumanChoiceEmoji = () => {
+  switch(true) {
+    case currentGame.gameType === "classic":
+      switch(true) {
+        case humanPlayer.choice === "rock":
+          removeHidden([rockEmojiClassic]);
+          break;
+        case humanPlayer.choice === "paper":
+          removeHidden([paperEmojiClassic]);
+          break;
+        case humanPlayer.choice === "scissors":
+          removeHidden([scissorsEmojiClassic]);
+          break;
+      }
+      break;
+    case currentGame.gameType === "difficult":
+      switch(true) {
+        case humanPlayer.choice === "rock":
+          removeHidden([rockEmojiDifficult]);
+          break;
+        case humanPlayer.choice === "paper":
+          removeHidden([paperEmojiDifficult]);
+          break;
+        case humanPlayer.choice === "scissors":
+          removeHidden([scissorsEmojiDifficult]);
+          break;
+        case humanPlayer.choice === "lizard":
+          removeHidden([lizardEmojiDifficult]);
+          break;
+        case humanPlayer.choice === "spock":
+          removeHidden([spockEmojiDifficult]);
+          break;
+      }
   }
 }
 
-function gameRefresh() {
+let gameRefresh = () => {
   currentGame.resetGame();
   removeHidden([changeGameButton, clearWinsButton]);
   if (currentGame.winner === "" && currentGame.gameType === "classic") {
@@ -137,7 +146,7 @@ function gameRefresh() {
   }
 }
 
-function showGameResults(player1, player2, game) {
+let showGameResults = (player1, player2, game) => {
   addHidden([changeGameButton, clearWinsButton]);
   displayHumanChoice(player1.choice);
   displayComputerChoice(player2.choice);
@@ -145,49 +154,62 @@ function showGameResults(player1, player2, game) {
   displayWins();
 }
 
-function displayHumanChoice(humanChoice) {
+let displayHumanChoice = humanChoice => {
   humanChoiceImage.innerHTML = ``;
   displayResultsView();
-  if (humanChoice === "paper") {
-    humanChoiceImage.innerHTML = `<img src="./Assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
-  } else if (humanChoice === "rock") {
-    humanChoiceImage.innerHTML = `<img src="./Assets/rock.png" alt="rock" class="image" id="rockButton">`;
-  } else if (humanChoice === "scissors") {
-    humanChoiceImage.innerHTML = `<img src="./Assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
-  } else if (humanChoice === "lizard") {
-    humanChoiceImage.innerHTML = `<img src="./Assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
-  } else if (humanChoice === "spock") {
-    humanChoiceImage.innerHTML = `<img src="./Assets/spock-icon.png" alt="spock" class="image" id="spockButton">`
-  };
-};
-
-function displayComputerChoice(computerChoice) {
-  computerChoiceImage.innerHTML = ``;
-  displayResultsView();
-  if (computerChoice === "paper") {
-    computerChoiceImage.innerHTML = `<img src="./Assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
-  } else if (computerChoice === "rock") {
-    computerChoiceImage.innerHTML = `<img src="./Assets/rock.png" alt="rock" class="image" id="rockButton">`;
-  } else if (computerChoice === "scissors") {
-    computerChoiceImage.innerHTML = `<img src="./Assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
-  } else if (computerChoice === "lizard") {
-    computerChoiceImage.innerHTML = `<img src="./Assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
-  } else if (computerChoice === "spock") {
-    computerChoiceImage.innerHTML = `<img src="./Assets/spock-icon.png" alt="spock" class="image" id="spockButton">`;
-  };
-};
-
-function displayWinner(winner) {
-  if (winner === "human") {
-    changingTextView.innerText = "👩‍🎤Human won this round!👩‍🎤";
-  } else if (winner === "computer") {
-    changingTextView.innerText = "💻Computer won this round!💻";
-  } else if (winner === "") {
-    changingTextView.innerText = "😭It's a draw!😭";
+  switch(true) {
+    case humanChoice === "paper":
+      humanChoiceImage.innerHTML = `<img src="./Assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
+      break;
+    case humanChoice === "rock":
+      humanChoiceImage.innerHTML = `<img src="./Assets/rock.png" alt="rock" class="image" id="rockButton">`;
+      break;
+    case humanChoice === "scissors":
+      humanChoiceImage.innerHTML = `<img src="./Assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
+      break;
+    case humanChoice === "lizard":
+      humanChoiceImage.innerHTML = `<img src="./Assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
+      break;
+    case humanChoice === "spock":
+      humanChoiceImage.innerHTML = `<img src="./Assets/spock-icon.png" alt="spock" class="image" id="spockButton">`;
   }
 }
 
-function displayWins() {
+let displayComputerChoice = computerChoice => {
+  computerChoiceImage.innerHTML = ``;
+  displayResultsView();
+  switch(true) {
+    case computerChoice === "paper":
+      computerChoiceImage.innerHTML = `<img src="./Assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
+      break;
+    case computerChoice === "rock":
+      computerChoiceImage.innerHTML = `<img src="./Assets/rock.png" alt="rock" class="image" id="rockButton">`;
+      break;
+    case computerChoice === "scissors":
+      computerChoiceImage.innerHTML = `<img src="./Assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
+      break;
+    case computerChoice === "lizard":
+      computerChoiceImage.innerHTML = `<img src="./Assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
+      break;
+    case computerChoice === "spock":
+      computerChoiceImage.innerHTML = `<img src="./Assets/spock-icon.png" alt="spock" class="image" id="spockButton">`;
+  }
+}
+
+let displayWinner = winner => {
+  switch(true) {
+    case winner === "human":
+      changingTextView.innerText = "👩‍🎤Human won this round!👩‍🎤";
+      break;
+    case winner === "computer":
+      changingTextView.innerText = "💻Computer won this round!💻";
+      break;
+    default:
+      changingTextView.innerText = "😭It's a draw!😭";
+  }
+}
+
+let displayWins = () => {
   if (JSON.parse(localStorage.getItem("human")) === null) {
     humanWinDisplay.innerText = `WINS: 0`;
   } else {
@@ -200,7 +222,16 @@ function displayWins() {
   }
 }
 
-function displayResultsView() {
+let displayResultsView = () => {
   removeHidden([resultsView]);
   addHidden([chooseFighterClassic, chooseFighterDifficult]);
 }
+
+//EVENT LISTENERS
+gameChoiceView.addEventListener("click", initiateGamePlay);
+changeGameButton.addEventListener("click", returnToGameChoice);
+clearWinsButton.addEventListener("click", clearLocalStorage);
+fighterButton.forEach(choice => {
+  choice.addEventListener("click", playGame);
+});
+window.addEventListener("load", displayWins);
