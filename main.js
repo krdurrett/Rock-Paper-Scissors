@@ -149,33 +149,33 @@ function displayHumanChoice(humanChoice) {
   humanChoiceImage.innerHTML = ``;
   displayResultsView();
   if (humanChoice === "paper") {
-    humanChoiceImage.innerHTML = `<img src="./assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
+    humanChoiceImage.innerHTML = `<img src="./Assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
   } else if (humanChoice === "rock") {
-    humanChoiceImage.innerHTML = `<img src="./assets/rock.png" alt="rock" class="image" id="rockButton">`;
+    humanChoiceImage.innerHTML = `<img src="./Assets/rock.png" alt="rock" class="image" id="rockButton">`;
   } else if (humanChoice === "scissors") {
-    humanChoiceImage.innerHTML = `<img src="./assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
+    humanChoiceImage.innerHTML = `<img src="./Assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
   } else if (humanChoice === "lizard") {
-    humanChoiceImage.innerHTML = `<img src="./assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
+    humanChoiceImage.innerHTML = `<img src="./Assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
   } else if (humanChoice === "spock") {
-    humanChoiceImage.innerHTML = `<img src="./assets/spock-icon.png" alt="spock" class="image" id="spockButton">`
-  }
-}
+    humanChoiceImage.innerHTML = `<img src="./Assets/spock-icon.png" alt="spock" class="image" id="spockButton">`
+  };
+};
 
 function displayComputerChoice(computerChoice) {
   computerChoiceImage.innerHTML = ``;
   displayResultsView();
   if (computerChoice === "paper") {
-    computerChoiceImage.innerHTML = `<img src="./assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
+    computerChoiceImage.innerHTML = `<img src="./Assets/happy-paper.png" alt="paper" class="image" id="paperButton">`;
   } else if (computerChoice === "rock") {
-    computerChoiceImage.innerHTML = `<img src="./assets/rock.png" alt="rock" class="image" id="rockButton">`;
+    computerChoiceImage.innerHTML = `<img src="./Assets/rock.png" alt="rock" class="image" id="rockButton">`;
   } else if (computerChoice === "scissors") {
-    computerChoiceImage.innerHTML = `<img src="./assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
+    computerChoiceImage.innerHTML = `<img src="./Assets/happy-scissors.png" alt="scissors" class="image" id="scissorsButton">`;
   } else if (computerChoice === "lizard") {
-    computerChoiceImage.innerHTML = `<img src="./assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
+    computerChoiceImage.innerHTML = `<img src="./Assets/flat-lizard.png" alt="lizard" class="image" id="lizardButton">`;
   } else if (computerChoice === "spock") {
-    computerChoiceImage.innerHTML = `<img src="./assets/spock-icon.png" alt="spock" class="image" id="spockButton">`;
-  }
-}
+    computerChoiceImage.innerHTML = `<img src="./Assets/spock-icon.png" alt="spock" class="image" id="spockButton">`;
+  };
+};
 
 function displayWinner(winner) {
   if (winner === "human") {
